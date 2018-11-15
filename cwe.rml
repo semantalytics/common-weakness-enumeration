@@ -1,0 +1,84 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix cwe: <http://semantalytics.com/2018/11/ns/common-weakness-enumeration/> .
+@base <http://semantalytics.com/2018/11/id/common-weakness-enumeration/> .
+
+_:weakness-map
+  rml:logicalSource [
+    rml:source "./1000.xml" ;
+    rml:iterator "//Weakness";
+    rml:referenceFormulation ql:XPath
+  ];
+
+  rr:subjectMap [
+    rr:template "http://semantalytics.com/2019/11/id/common-weakness-enumeration/weakness/{@ID}";
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:name;
+    rr:objectMap [
+	rr:reference "@Name"
+      ]
+    ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:abstraction;
+    rr:objectMap [
+	rr:reference "@Abstraction"
+      ]
+    ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:structure;
+    rr:objectMap [
+	rr:reference "@Structure"
+      ]
+    ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:status;
+    rr:objectMap [
+	rr:reference "@Status"
+      ]
+    ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:description;
+    rr:objectMap [
+	rr:reference "Description"
+      ]
+    ];
+
+  rr:predicateObjectMap [
+    rr:predicate cwe:extendedDescription;
+    rr:objectMap [
+	rr:reference "Extended_Description"
+      ]
+    ];
+
+#  rr:predicateObjectMap [
+#    rr:predicate cwe:relatedWeaknesses;
+#    rr:objectMap [
+#	rr:parentTriplesMap [
+#		  rml:logicalSource [
+#		    rml:source "./1000.xml" ;
+#		    rml:iterator "//Related_Weaknesses";
+#		    rml:referenceFormulation ql:XPath
+#		  ];
+#
+#		  rr:subjectMap [
+#			rr:termType rr:BlankNode;
+#		  ];
+#
+#		  rr:predicateObjectMap [
+#		    rr:predicate cwe:relatedWeakness;
+#		    rr:objectMap [
+#			rr:reference "Related_Weakness"
+#		      ]
+#		    ];
+#	];
+#      ];
+#    ];
+.
+
